@@ -7,14 +7,13 @@
                   <h4>Register</h4>
               </div>
               <div class="card-body">
-                  <form [formGroup]= "signupForm"  (ngSubmit) = "signup()">
+                  <form [formGroup]= "signupForm" >
                       <div class="form-group row">
                           <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail
                               Address</label>
                           <div class="col-md-6">
-                              <input type="text" [formControlName] = "'email'" id="email_address" class="form-control" name="email-address" required
-                                  autofocus>
-                                  <span *ngIf= "signupForm.get('email')?.valid && signupForm.get('email')?.touched">
+                              <input type="text" formControlName = "email" id="email_address" class="form-control" name="email-address" required>
+                                  <span *ngIf= "!signupForm.controls['email'].valid && signupForm.controls['email'].touched">
                                     Please provide a valid email
                                   </span>
                           </div>
@@ -23,9 +22,9 @@
                       <div class="form-group row">
                           <label class="col-md-4 col-form-label text-md-right">User Name</label>
                           <div class="col-md-6">
-                              <input type="text" [formControlName] = "'username'" class = "form-control" required autofocus>
+                              <input type="text" [formControlName] = "'username'" class = "form-control" required>
                           </div>
-                          <span *ngIf= "signupForm.get('username')?.valid && signupForm.get('username')?.touched">
+                          <span *ngIf= "!signupForm.controls['username'].valid && signupForm.controls['email'].touched">
                             Please provide a valid username
                           </span>
                       </div>
@@ -35,13 +34,13 @@
                           <div class="col-md-6">
                               <input type="password" [formControlName] ="'password'" id="password" class="form-control" name="password" required>
                           </div>
-                          <span *ngIf= "signupForm.get('password')?.valid && signupForm.get('password')?.touched">
+                          <span *ngIf= "!signupForm.controls['password'].valid && signupForm.controls['password'].touched">
                             Please provide a valid password
                           </span>
                       </div>
 
                       <span class="col-md-6 offset-md-4">
-                          <button type="submit" class="sign-up">
+                          <button type="submit" class="sign-up" (click) = "signup()">
                               Sign Up
                           </button>
                           <span style="padding-left: 15px">Existing user? <a [routerLink] = "['/login']">Log In</a></span>

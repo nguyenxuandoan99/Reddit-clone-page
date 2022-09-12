@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 import { LoginRequest } from './login.request.payload';
@@ -13,11 +13,12 @@ export class LoginComponent implements OnInit {
 
   loginForm! : FormGroup;
   LoginRequest! : LoginRequest;
-
+  // username : any;
+  // password : any;
 /**
  * Create object
  */
-  constructor(private authService : AuthService, private activatedRouter : ActivatedRoute, private router : Router) {
+  constructor(private authService : AuthService, private router : Router, private formBuilder : FormBuilder) {
     this.LoginRequest = {
       username: '',
       password: '',
@@ -30,24 +31,40 @@ export class LoginComponent implements OnInit {
    */
 
   ngOnInit(): void {
-    this.loginForm = new FormGroup({
-      username : new FormControl('', Validators.required),
-      password : new FormControl('', Validators.required)
+    this.loginForm = this.formBuilder.group ({
+      username : ['', Validators.required],
+      password : ['', Validators.required],
     });
   }
 
   // this.activatedRouter.queryParams.subscribe(params => {
   //   if (params.registered !== undefined && params.registered == 'true')
   // })
+
   /**
    * Create a login measure and read username and password values
    */
 
-  login(){
-    this.LoginRequest.username = this.loginForm.get('username')?.value;
-    this.LoginRequest.password = this.loginForm.get('password')?.value;
-    this.authService.login(this.LoginRequest).subscribe(data => {
-      console.log('Login Successful');
-    });
-  }
+  public login() : void {
+    console.log(this.loginForm)
+    console.log(this.loginForm.controls['username'].value);
+    this.LoginRequest.username = this.loginForm.controls['username'].value;
+    this.LoginRequest.password = this.loginForm.controls['password'].value;
+    this.router.navigate([''])
+    // this.authService.login(this.LoginRequest).subscribe(() => {
+    //   console.log('Login Successful');
+
+    // });
+    }
+    // LoginUser(): void{
+    //   if(this.username == "admin" && this.password == "admin"){
+    //     console.log("wellcome");
+    //     this.router.navigate(['']);
+    //   }
+    //   else{
+    //     console.log("login fail");
+    //     alert("Login faile")
+    //   }
+    // }
 }
+
