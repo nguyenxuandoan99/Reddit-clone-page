@@ -15,7 +15,8 @@
             <option value="" selected disabled>Select Subreddit</option>
             <option *ngFor="let subreddit of subreddits">{{subreddit.name}}</option>
           </select>
-          <editor [formControlName]="'description'"></editor>
+          <textarea matInput = 'description'  [formControlName]="'description'">description</textarea>
+          <!-- <editor [formControlName]="'description'"></editor> -->
           <span>
             <div style="margin-top: 5px" class="float-right">
               <button (click)="discardPost()" class="btnDiscard">Discard</button>

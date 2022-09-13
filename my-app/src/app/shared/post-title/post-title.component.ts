@@ -10,7 +10,20 @@ import { PostModel } from '../post-model';
 })
 export class PostTitleComponent implements OnInit {
 
-  @Input() posts!: Array<PostModel>;
+  // posts: PostModel[] = [
+  //   {
+  //   id : 1,
+  //   postName : 'title 1',
+  //   url: '#',
+  //   description: 'abcd',
+  //   voteCount : 1,
+  //   userName : 'title 1',
+  //   subredditName : 'abc',
+  //   commentCount : 4,
+  //   duration : 'abc',
+  // }
+  // ];
+  @Input() posts! : PostModel[];
   faComments = faComments;
   constructor(private router : Router) { }
 

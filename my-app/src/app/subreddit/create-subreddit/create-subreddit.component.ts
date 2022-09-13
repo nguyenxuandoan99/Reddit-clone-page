@@ -52,12 +52,13 @@ export class CreateSubredditComponent implements OnInit {
    */
 
   createSubreddit() {
+    console.log(this.createSubredditForm)
     this.subredditModel.name = this.createSubredditForm.controls['title'].value;
     this.subredditModel.description = this.createSubredditForm.controls['description'].value;
     this.router.navigateByUrl('/list-subreddit');
-    this.subredditService.createSubreddit(this.subredditModel).subscribe((data: any) => {
-    }, (error: any) => {
-      throwError(error);
-    })
+    // this.subredditService.createSubreddit(this.subredditModel).subscribe((data: any) => {
+    // }, (error: any) => {
+    //   throwError(error);
+    // })
   }
 }

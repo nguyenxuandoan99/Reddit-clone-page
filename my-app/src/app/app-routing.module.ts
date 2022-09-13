@@ -9,13 +9,14 @@ import { CreateSubredditComponent } from './subreddit/create-subreddit/create-su
 import { ListSubredditComponent } from './subreddit/list-subreddit/list-subreddit.component';
 
 const routes: Routes = [
-  {path: '', component : HomeComponent},
+  {path: 'home', component : HomeComponent},
   {path: 'list-subreddit' , component : ListSubredditComponent},
   {path: 'view-post/:id' , component : ViewPostComponent},
   {path: 'create-post' , component : CreatePostComponent},
   {path: 'create-subreddit' , component : CreateSubredditComponent},
   {path: 'login', component : LoginComponent},
   {path: 'signup', component : SignupComponent},
+  {path: '' , redirectTo : 'login', pathMatch : 'full'},
 ];
 
 @NgModule({

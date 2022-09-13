@@ -2,13 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CreatePostPayload } from '../post/create-post/create-post.payload';
+import { PostModel } from './post-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  getPost(postId: number) {
-    throw new Error('Method not implemented.');
+  postId: any;
+
+  getPost(id : number) : Observable<PostModel> {
+    return this.http.get<PostModel>('http://localhost.4200/api/posts/' + id);
   }
 
   constructor(private http: HttpClient) {
@@ -16,7 +19,7 @@ export class PostService {
    }
 
    getAllPost() : Observable<Array<PostService>>{
-    return this.http.get<Array<PostService>>('http://localhost:4200/api/posts')
+    return this.http.get<Array<PostService>>('') //http://localhost:4200/api/posts
    }
 
    /**
@@ -24,6 +27,10 @@ export class PostService {
     */
 
    createPost(postPayLoad : CreatePostPayload) : Observable<any>{
-    return this.http.post('http://localhost:4200/api/posts,', postPayLoad);
+    return this.http.post('', postPayLoad);
+   }
+
+   getAllPostsByUser(name : string) : Observable<PostModel[]>{
+    return this.http.get<PostModel[]>("",)
    }
 }

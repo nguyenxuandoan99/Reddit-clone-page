@@ -15,7 +15,6 @@ export class SignupComponent implements OnInit {
 
   signupRequestPayload!: SignupRequestPayload;
   signupForm!: FormGroup;
-  // private toastr: ToastrService
   constructor(private authService : AuthService, private router : Router, private toastr: ToastrService,private formBuilder : FormBuilder ) {
     this.signupRequestPayload = {
       username : '',
@@ -36,7 +35,9 @@ export class SignupComponent implements OnInit {
             password: ['', Validators.required],
           })
   }
-
+  /**
+   * signup method redirects login
+   */
   public signup(){
       this.signupRequestPayload.username = this.signupForm.controls['username'].value;
       this.signupRequestPayload.email = this.signupForm.controls['email'].value;

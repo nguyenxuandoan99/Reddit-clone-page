@@ -50,7 +50,8 @@ export class LoginComponent implements OnInit {
     console.log(this.loginForm.controls['username'].value);
     this.LoginRequest.username = this.loginForm.controls['username'].value;
     this.LoginRequest.password = this.loginForm.controls['password'].value;
-    this.router.navigate([''])
+    this.router.navigate(['home'])
+    alert("Login Successfull");
     // this.authService.login(this.LoginRequest).subscribe(() => {
     //   console.log('Login Successful');
 

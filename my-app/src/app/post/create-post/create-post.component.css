@@ -1,3 +1,8 @@
+textarea{
+  margin-top: 8px;
+  width: 100%;
+  height: 150px;
+}
 .btnCreatePost,
 .btnCreateSubreddit {
   margin-top: 5px;

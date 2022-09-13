@@ -45,11 +45,12 @@ export class CreatePostComponent implements OnInit {
   }
 
   public createPost() : void{
+    console.log(this.createPostForm)
     this.postPayLoad.postName = this.createPostForm.controls['postName'].value,
     this.postPayLoad.subredditName = this.createPostForm.controls['subredditName'].value,
     this.postPayLoad.url = this.createPostForm.controls['url'].value,
     this.postPayLoad.description = this.createPostForm.controls['description'].value,
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('home');
     // this.postService.createPost(this.postPayLoad).subscribe((data : any) => {
     // },
     // error => {
@@ -62,6 +63,6 @@ export class CreatePostComponent implements OnInit {
    */
 
   public discardPost() : void{
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('home');
   }
 }

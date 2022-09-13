@@ -23,6 +23,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@tinymce/tinymce-angular": "^7.0.0",
     "bootstrap": "^5.2.1",
+    "ngx-mat-errors": "^14.0.0",
     "ngx-toastr": "^15.0.0",
     "ngx-webstorage": "^10.0.1",
     "rxjs": "~7.5.0",

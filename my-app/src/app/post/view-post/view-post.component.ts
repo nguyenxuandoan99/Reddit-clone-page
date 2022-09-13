@@ -14,12 +14,12 @@ export class ViewPostComponent implements OnInit {
   postId! : number;
   post! : PostModel;
   constructor(private postService : PostService, private activateRoute : ActivatedRoute) {
-    // this.postId = this.activateRoute.snapshot.params['id'];
-    // this.postService.getPost(this.postId).subscribe((data : any)=>{
-    //   this.post = data;
-    // }, error => {
-    //   throwError(error);
-    // })
+    this.postId = this.activateRoute.snapshot.params['id'];
+    this.postService.getPost(this.postId).subscribe((data : any)=>{
+      this.post = data;
+    }, (error : string) => {
+      throwError(error);
+    })
    }
 
   ngOnInit(): void {

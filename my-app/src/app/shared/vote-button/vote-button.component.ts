@@ -17,4 +17,6 @@ export class VoteButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  upvotePost():void{}
+  downvotePost():void{}
 }

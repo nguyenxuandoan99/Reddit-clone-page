@@ -50,15 +50,19 @@ export class AuthService {
       this.localStore.store('expiresAt', response.expiresAt);
     }));
   }
-  getJwtToken(){
+  getJwtToken() {
     return this.localStore.retrieve('authenticationToken');
   }
-  getRefreshToken() {
+  getRefreshToken() : string{
     return this.localStore.retrieve('refreshToken');
   }
 
-    getUserName() {
+  getUserName() : string{
     return this.localStore.retrieve('username');
+  }
+
+  isLoggedIn() : boolean{
+    return this.getJwtToken() != null;
   }
 }
 

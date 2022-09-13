@@ -22,6 +22,8 @@ import { SubredditSideBarComponent } from './shared/subreddit-side-bar/subreddit
 import { VoteButtonComponent } from './shared/vote-button/vote-button.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ViewPostComponent } from './post/view-post/view-post.component';
+import { NgxMatErrorDef } from 'ngx-mat-errors';
+import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
     PostTitleComponent,
     SubredditSideBarComponent,
     VoteButtonComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
