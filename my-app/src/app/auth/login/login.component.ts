@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
+import { LoginResponse } from './login.reponse';
 import { LoginRequest } from './login.request.payload';
 
 @Component({
@@ -12,12 +13,12 @@ import { LoginRequest } from './login.request.payload';
 export class LoginComponent implements OnInit {
 
   loginForm! : FormGroup;
-  LoginRequest! : LoginRequest;
+  loginRequest! : LoginRequest;
 /**
  * Create object
  */
   constructor(private authService : AuthService, private router : Router, private formBuilder : FormBuilder) {
-    this.LoginRequest = {
+    this.loginRequest = {
       username: '',
       password: '',
     };
@@ -45,9 +46,9 @@ export class LoginComponent implements OnInit {
 
   public login() : void {
     console.log(this.loginForm)
-    this.LoginRequest.username = this.loginForm.controls['username'].value;
-    this.LoginRequest.password = this.loginForm.controls['password'].value;
-    this.authService.login(this.LoginRequest).subscribe(data => {
+    this.loginRequest.username = this.loginForm.controls['username'].value;
+    this.loginRequest.password = this.loginForm.controls['password'].value;
+    this.authService.login(this.loginRequest).subscribe((data : boolean)  => {
       console.log(data);
       console.log('Login Successful');
       this.router.navigateByUrl('/home');

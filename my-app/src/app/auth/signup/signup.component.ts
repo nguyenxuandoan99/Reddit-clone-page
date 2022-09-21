@@ -44,7 +44,7 @@ export class SignupComponent implements OnInit {
       this.signupRequestPayload.password = this.signupForm.controls['password'].value;
       this.authService.signup(this.signupRequestPayload).subscribe(data => {
         console.log(data);
-          this.router.navigate(['/home'],
+          this.router.navigate(['/login'],
           { queryParams : { registered : 'true'} }
 
           );
