@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PostModel } from '../shared/post-model';
 import { PostService } from '../shared/post.service';
 
@@ -8,17 +8,23 @@ import { PostService } from '../shared/post.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  @Input() posts! : PostModel[];
-  posts$ : Array<PostService> = [];
+  searchText : string = "";
+  posts : Array<PostModel> = [];
 
   constructor(private postService : PostService){
-    this.postService.getAllPost().subscribe(post =>{
-      this.posts$ = post;
+  }
+
+  /**
+   * Display all Post
+   */
+  ngOnInit(): void {
+    this.postService.getAllPost().subscribe((post : any) =>{
+      this.posts = post;
     });
   }
-
-  ngOnInit(): void {
+  searchPosts(searchvaluepost : string){
+    this.searchText = searchvaluepost;
+    this.posts = this.posts.filter(post => post.postName.includes(this.searchText));
+    console.log(this.searchText);
   }
-
 }

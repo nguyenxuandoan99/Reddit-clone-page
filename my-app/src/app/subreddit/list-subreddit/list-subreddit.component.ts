@@ -10,7 +10,7 @@ import { SubredditService } from '../subreddit.service';
 })
 export class ListSubredditComponent implements OnInit {
 
-  subreddits! : Array<SubredditModel>;
+  subreddits : Array<SubredditModel> = [];
   constructor(private subredditService: SubredditService) { }
 
   /**
@@ -18,9 +18,9 @@ export class ListSubredditComponent implements OnInit {
    */
 
   ngOnInit(): void {
-    this.subredditService.getAllSubreddits().subscribe(data => {
-      this.subreddits = data;
+    this.subredditService.getAllSubreddits().subscribe((data : Array<SubredditModel>) => {
       console.log(data);
+      this.subreddits = data;
     }, error => {
       throwError(error);
     })

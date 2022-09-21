@@ -10,16 +10,22 @@ import { PostModel } from './post-model';
 export class PostService {
   postId: any;
 
-  getPost(id : number) : Observable<PostModel> {
-    return this.http.get<PostModel>('http://localhost.4200/api/posts/' + id);
-  }
-
   constructor(private http: HttpClient) {
 
-   }
+  }
 
-   getAllPost() : Observable<Array<PostService>>{
-    return this.http.get<Array<PostService>>('') //http://localhost:4200/api/posts
+  //Get/:id: http
+  getPost(id : number) : Observable<PostModel> {
+    return this.http.get<PostModel>("http://localhost:8080/api/posts/" + id);
+  }
+
+  /**
+   * Danh sach
+   * Get: http://localhost:4200/home
+   * returns an Observable of Config
+   */
+   getAllPost() : Observable<Array<PostModel[]>>{
+    return this.http.get<Array<PostModel[]>>("http://localhost:8080/api/posts/");
    }
 
    /**
@@ -27,10 +33,10 @@ export class PostService {
     */
 
    createPost(postPayLoad : CreatePostPayload) : Observable<any>{
-    return this.http.post('', postPayLoad);
+    return this.http.post("http://localhost:8080/api/posts/", postPayLoad);
    }
 
    getAllPostsByUser(name : string) : Observable<PostModel[]>{
-    return this.http.get<PostModel[]>("",)
+    return this.http.get<PostModel[]>('http://localhost:8080/api/posts/by-user/' + name);
    }
 }

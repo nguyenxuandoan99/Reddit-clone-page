@@ -1,0 +1,10 @@
+.outlet{
+  background-color: aliceblue;
+  margin-top: 10px;
+}
+body{
+  background-image: linear-gradient(to right, #f3f7f5, #0f1010);
+}
+.header{
+  margin-top: 5px;
+}

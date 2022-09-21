@@ -13,10 +13,9 @@ import { CreatePostPayload } from './create-post.payload';
   styleUrls: ['./create-post.component.css']
 })
 export class CreatePostComponent implements OnInit {
-
   createPostForm! : FormGroup;
   postPayLoad! : CreatePostPayload;
-  subreddits! : Array<SubredditModel>
+  subreddits! : Array<SubredditModel>;
   constructor(private router : Router, private postService : PostService, private subredditService : SubredditService, private formBuilder : FormBuilder  ) {
     this.postPayLoad = {
       postName: '',
@@ -38,24 +37,28 @@ export class CreatePostComponent implements OnInit {
       url :  ['', Validators.required],
       description : ['', Validators.required],
     });
-    // this.subredditService.getAllSubreddits().subscribe((data : any) => {this.subreddits = data;
-    // }, error => {
-    //   throwError(error);
-    // })
+    this.subredditService.getAllSubreddits().subscribe((data) => {
+      this.subreddits = data;
+    }, error => {
+      throwError(error);
+    });
   }
 
+  /**
+   * Create a new Post
+   */
   public createPost() : void{
-    console.log(this.createPostForm)
+    console.log(this.createPostForm);
     this.postPayLoad.postName = this.createPostForm.controls['postName'].value,
     this.postPayLoad.subredditName = this.createPostForm.controls['subredditName'].value,
     this.postPayLoad.url = this.createPostForm.controls['url'].value,
     this.postPayLoad.description = this.createPostForm.controls['description'].value,
-    this.router.navigateByUrl('home');
-    // this.postService.createPost(this.postPayLoad).subscribe((data : any) => {
-    // },
-    // error => {
-    //   throwError(error);
-    // });
+    console.log(this.postPayLoad);
+    debugger;
+    this.postService.createPost(this.postPayLoad).subscribe(data => {
+      console.log(data);
+      this.router.navigateByUrl('home');
+    });
   };
 
   /**

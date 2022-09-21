@@ -42,15 +42,17 @@ export class SignupComponent implements OnInit {
       this.signupRequestPayload.username = this.signupForm.controls['username'].value;
       this.signupRequestPayload.email = this.signupForm.controls['email'].value;
       this.signupRequestPayload.password = this.signupForm.controls['password'].value;
-      this.router.navigate(['/login']);
-      // this.authService.signup(this.signupRequestPayload)
-      //   .subscribe(data => {
-      //     this.router.navigate(['/login'],
-      //     { queryParams : { registered : 'true'} });
-      //     console.log(data);
-      //   }, () => {
-      //     this.toastr.error("Registration Failed! please try again");
-      //   });
+      this.authService.signup(this.signupRequestPayload).subscribe(data => {
+        console.log(data);
+          this.router.navigate(['/home'],
+          { queryParams : { registered : 'true'} }
+
+          );
+        },
+         () => {
+          this.toastr.error("Registration Failed! please try again");
+        }
+        );
   }
 
   public get f(){

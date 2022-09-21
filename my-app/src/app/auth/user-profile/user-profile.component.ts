@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CommentService } from 'src/app/comment/comment.service';
 import { PostModel } from 'src/app/shared/post-model';
 import { PostService } from 'src/app/shared/post.service';
 
@@ -15,8 +16,17 @@ export class UserProfileComponent implements OnInit {
   comments! : string;
   postLength! : number;
   commentLength! : number;
-  constructor(private activatedRouter : ActivatedRoute, private postService : PostService) {
-    this
+  constructor(private activatedRoute : ActivatedRoute, private postService : PostService,private commentService : CommentService) {
+    this.name = this.activatedRoute.snapshot.params['name'];
+
+    this.postService.getAllPostsByUser(this.name).subscribe(data => {
+      this.posts = data;
+      this.postLength = data.length;
+    });
+    this.commentService.getAllCommentsByUser(this.name).subscribe((data : any) => {
+      this.comments = data;
+      this.commentLength = data.length;
+    });
    }
 
   ngOnInit(): void {

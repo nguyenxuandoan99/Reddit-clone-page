@@ -1,9 +1,9 @@
 img{
   height: 120px;
-  width: 300px;
+  width: 278px;
 }
 .sidebar{
-  width: 312px;
+  width: 290px;
   height: 242px;
   --post-line-color: #ccc;
   border: 1px solid #ccc;
@@ -35,7 +35,7 @@ img{
   text-transform: uppercase;
   padding: 3px 16px;
   opacity: 1;
-  width: 288px;
+  width: 250px;
   height: 34px;
 }
 

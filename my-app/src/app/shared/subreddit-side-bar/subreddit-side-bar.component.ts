@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SubredditService } from 'src/app/subreddit.service';
+// import { SubredditService } from 'src/app/subreddit.service';
 import { SubredditModel } from 'src/app/subreddit/subreddit-response';
+import { SubredditService } from 'src/app/subreddit/subreddit.service';
 
 @Component({
   selector: 'app-subreddit-side-bar',
@@ -10,20 +11,18 @@ import { SubredditModel } from 'src/app/subreddit/subreddit-response';
 export class SubredditSideBarComponent implements OnInit {
 
   subreddits: Array<SubredditModel> = [];
-  displayViewAll!: boolean;
+  // displayViewAll!: boolean;
   constructor(private subredditService: SubredditService) {
-    // this.subredditService.getAllSubreddits().subscribe((data: any) => {
-    //   if (data.length >= 4) {
-    //     this.subreddits = data.splice(0, 3);
-    //     this.displayViewAll = true;
-    //   } else {
-    //     this.subreddits = data;
-    //   }
-    // });
+
    }
-
+  /**
+   * Display all subreddits
+   */
   ngOnInit(): void {
-
+    this.subredditService.getAllSubreddits().subscribe((data : any ) => {
+      console.log(data)
+      this.subreddits = data;
+    });
   }
 
 }

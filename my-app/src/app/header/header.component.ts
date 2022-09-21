@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from '../auth/shared/auth.service';
@@ -10,9 +10,11 @@ import { AuthService } from '../auth/shared/auth.service';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() searchtextChange : EventEmitter<string> = new EventEmitter<string>();
   faUser = faUser;
   isLoggedIn! : boolean;
   username! : string;
+  searchValue : string = '' ;
   constructor(private authService : AuthService, private router : Router) { }
 
   ngOnInit(): void {
@@ -22,6 +24,9 @@ export class HeaderComponent implements OnInit {
 
   goToUserProfile(){
     this.router.navigateByUrl('');
+  }
+  searchPosts(){
+    this.searchtextChange.emit(this.searchValue);
   }
 
 }

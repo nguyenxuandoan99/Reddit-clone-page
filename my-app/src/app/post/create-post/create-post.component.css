@@ -17,6 +17,8 @@ textarea{
 }
 
 .create-post-container {
+  margin-left: 200px;
+  text-align: center;
   margin-top: 10px;
   --post-line-color: #ccc;
   border: 1px solid #ccc;

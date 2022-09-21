@@ -24,6 +24,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { NgxMatErrorDef } from 'ngx-mat-errors';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { UserProfileComponent } from './auth/user-profile/user-profile.component
     SubredditSideBarComponent,
     VoteButtonComponent,
     ViewPostComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -9,29 +9,34 @@ import { PostModel } from '../post-model';
   styleUrls: ['./post-title.component.css']
 })
 export class PostTitleComponent implements OnInit {
-
-  // posts: PostModel[] = [
-  //   {
-  //   id : 1,
-  //   postName : 'title 1',
-  //   url: '#',
-  //   description: 'abcd',
-  //   voteCount : 1,
-  //   userName : 'title 1',
-  //   subredditName : 'abc',
-  //   commentCount : 4,
-  //   duration : 'abc',
-  // }
-  // ];
   @Input() posts! : PostModel[];
-  faComments = faComments;
+  public faComments = faComments;
   constructor(private router : Router) { }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Create Readpost button to display posts by id
+   *
+   */
   public goToPost(id : number) : void{
     this.router.navigateByUrl('/view-post/' + id);
   }
+
+  // public addTitle(){
+
+  // }
+  /**
+   * Create button remove to delete Post by id
+   */
+  public remove (id : number){
+    alert (" You want remove title" + id);
+      const index = this.posts.findIndex(( title: { id: number; }) =>  title.id === id);
+      if(index !== -1){
+        this.posts.splice(index,1);
+      }
+  }
+
 
 }

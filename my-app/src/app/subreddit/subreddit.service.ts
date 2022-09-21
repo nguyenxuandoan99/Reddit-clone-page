@@ -11,7 +11,7 @@ export class SubredditService {
   constructor(private http: HttpClient) { }
 
   getAllSubreddits(): Observable<Array<SubredditModel>> {
-    return this.http.get<Array<SubredditModel>>('http://localhost:4200/api/subreddit');
+    return this.http.get<Array<SubredditModel>>('http://localhost:8080/api/subreddit');
   }
 
   /**
@@ -20,7 +20,6 @@ export class SubredditService {
    */
 
   createSubreddit(subredditModel: SubredditModel): Observable<SubredditModel> {
-    return this.http.post<SubredditModel>('http://localhost:4200/api/subreddit',
-      subredditModel);
+    return this.http.post<SubredditModel>('http://localhost:8080/api/subreddit',subredditModel);
   }
 }
