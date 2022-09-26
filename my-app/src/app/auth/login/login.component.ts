@@ -12,8 +12,8 @@ import { LoginRequest } from './login.request.payload';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm! : FormGroup;
-  loginRequest! : LoginRequest;
+  loginForm !: FormGroup;
+  loginRequest !: LoginRequest;
 /**
  * Create object
  */

@@ -29,13 +29,21 @@ export class SignupComponent implements OnInit {
   */
 
   ngOnInit(): void {
-          this.signupForm = this.formBuilder.group({
-            email :   ['', Validators.required],
-            username: ['', Validators.required],
-            password: ['', Validators.required],
-          })
+    setTimeout(() => {
+      this.signupForm = this.formBuilder.group({
+        email :   ['', Validators.required],
+        username: ['', Validators.required],
+        password: ['', Validators.required],
+      })
+    },);
+          // this.signupForm = this.formBuilder.group({
+          //   email :   ['', Validators.required],
+          //   username: ['', Validators.required],
+          //   password: ['', Validators.required],
+          // })
   }
   /**
+   * Create a signup() method that reads the FormControl values and creates a signupRequestPayload object.
    * signup method redirects login
    */
   public signup(){
@@ -48,14 +56,13 @@ export class SignupComponent implements OnInit {
           { queryParams : { registered : 'true'} }
 
           );
-        },
-         () => {
+        },() => {
           this.toastr.error("Registration Failed! please try again");
         }
         );
   }
 
-  public get f(){
-    return this.signupForm.controls
-  }
+  // public get f(){
+  //   return this.signupForm.controls
+  // }
 }

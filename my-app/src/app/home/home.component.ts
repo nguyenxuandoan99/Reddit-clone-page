@@ -22,6 +22,11 @@ export class HomeComponent implements OnInit {
       this.posts = post;
     });
   }
+
+  /**
+   * Initialize searchPosts() method to search for posts
+   * User to search Post by postName
+   */
   searchPosts(searchvaluepost : string){
     this.searchText = searchvaluepost;
     this.posts = this.posts.filter(post => post.postName.includes(this.searchText));

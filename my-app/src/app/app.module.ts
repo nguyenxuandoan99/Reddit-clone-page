@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { HomeComponent } from './home/home.component';
@@ -25,6 +25,8 @@ import { ViewPostComponent } from './post/view-post/view-post.component';
 import { NgxMatErrorDef } from 'ngx-mat-errors';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
 import { FooterComponent } from './footer/footer.component';
+import { TokenInterceptor } from './token-interceptor';
+import { ViewCommentComponent } from './view-comment/view-comment.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { FooterComponent } from './footer/footer.component';
     VoteButtonComponent,
     ViewPostComponent,
     UserProfileComponent,
-    FooterComponent
+    FooterComponent,
+    ViewCommentComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +57,15 @@ import { FooterComponent } from './footer/footer.component';
     ToastrModule.forRoot(),
     FontAwesomeModule,
     EditorModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

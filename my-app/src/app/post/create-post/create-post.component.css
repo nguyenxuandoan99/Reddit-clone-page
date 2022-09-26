@@ -82,3 +82,8 @@ textarea{
     width: 288px;
     height: 34px;
   }
+.form{
+  margin-top: 3%;
+  background-image: linear-gradient(to right, rgba(115, 231, 90, 0.723), rgb(99, 226, 235));
+  margin-bottom: 5%;
+}

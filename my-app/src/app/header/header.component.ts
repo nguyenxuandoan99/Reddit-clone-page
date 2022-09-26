@@ -22,11 +22,27 @@ export class HeaderComponent implements OnInit {
     this.username = this.authService.getUserName();
   }
 
+  /**
+   * Navigate to the user-profile page
+   */
   goToUserProfile(){
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('/user-profile/' + this.username);
   }
+  /**
+   * Logout account
+   * Navigate to the login page
+   */
+  logout(){
+    this.authService.logout()
+    this.router.navigateByUrl('').then(() =>{
+      window.location.reload();
+    })
+  }
+
+  /**
+   * Search post by postName
+   */
   searchPosts(){
     this.searchtextChange.emit(this.searchValue);
   }
-
 }

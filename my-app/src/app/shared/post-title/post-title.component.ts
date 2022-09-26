@@ -10,6 +10,7 @@ import { PostModel } from '../post-model';
 })
 export class PostTitleComponent implements OnInit {
   @Input() posts! : PostModel[];
+  searchText : string = "";
   public faComments = faComments;
   constructor(private router : Router) { }
 
@@ -20,7 +21,7 @@ export class PostTitleComponent implements OnInit {
    * Create Readpost button to display posts by id
    *
    */
-  public goToPost(id : number) : void{
+  public readPost(id : number) : void{
     this.router.navigateByUrl('/view-post/' + id);
   }
 

@@ -46,6 +46,9 @@ export class CreatePostComponent implements OnInit {
 
   /**
    * Create a new Post
+   * Create a createPost() method that reads the FormControl values and creates a PostPayload object.
+   * Call the createPost() method inside the SubredditService, subscribe to the response, and when the response is successful,
+   * navigate to the homepage, otherwise return an error.
    */
   public createPost() : void{
     console.log(this.createPostForm);

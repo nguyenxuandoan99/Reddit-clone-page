@@ -49,6 +49,7 @@ export class CreateSubredditComponent implements OnInit {
 
   /**
    * Create new a Subreddit
+   * Create a createSubreddit() method that reads the FormControl values and creates a subredditModel object.
    * The createSubreddit method reads the form control values for 'title' and 'description'.
    */
 
@@ -56,7 +57,7 @@ export class CreateSubredditComponent implements OnInit {
     console.log(this.createSubredditForm)
     this.subredditModel.name = this.createSubredditForm.controls['title'].value;
     this.subredditModel.description = this.createSubredditForm.controls['description'].value;
-    this.subredditService.createSubreddit(this.subredditModel).subscribe(data  => {
+    this.subredditService.createSubreddit(this.subredditModel).subscribe( data  => {
       this.router.navigateByUrl('/list-subreddit');
     }, error => {
       throwError(error);

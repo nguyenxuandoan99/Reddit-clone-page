@@ -3,8 +3,7 @@
   height: 242px;
   --post-line-color: #ccc;
   border: 1px solid #ccc;
-  margin-bottom: 10px;
-  overflow: hidden;
+  overflow:auto;
   background-color: rgba(255, 255, 255, 0.8);
   color: #878A8C;
   position: relative;
@@ -12,6 +11,7 @@
   padding: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 52px;
 }
 
 .sidebar-view-subreddit {

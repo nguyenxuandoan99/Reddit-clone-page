@@ -1,0 +1,14 @@
+.header-comment{
+  margin-top: 10px;
+  border: 1px black;
+  background-image: linear-gradient(to right, #f1fcff, #c6f6f6);
+}
+.comment-post{
+  margin-top: 10px;
+  background-image: linear-gradient(to right, #f1fcff, #c6f6f6);
+}
+.header-comment h2{
+  background-image: linear-gradient(to right, #ffff42, #fa5928);
+  font: 2em sans-serif;
+  font-family: 'Times New Roman', Times, serif;
+}

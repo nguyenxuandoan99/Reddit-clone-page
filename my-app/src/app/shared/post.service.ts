@@ -39,4 +39,7 @@ export class PostService {
    getAllPostsByUser(name : string) : Observable<PostModel[]>{
     return this.http.get<PostModel[]>('http://localhost:8080/api/posts/by-user/' + name);
    }
+  //  getAllCommentsByUser(name: string) :Observable<CommentPayload[]> {
+  //   return this.httpClient.get<CommentPayload[]>('http://localhost:8080/api/comments/by-user/' + name);
+  // }
 }

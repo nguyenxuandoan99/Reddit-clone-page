@@ -1,12 +1,16 @@
-<div class="container">
-  <div class="row">
-    <Div class="form">
+<div class="container-fluid">
+  <app-header></app-header>
+</div>
+<div class="container-fluid">
+    <div class="form">
     <div class="create-post-container col-md-9">
       <form class="post-form" [formGroup]="createPostForm" >
         <div class="form-group">
           <div class="create-post-heading">Create Post</div>
           <!-- post name -->
           <input type="text" [formControlName]="'postName'" class="form-control" style="margin-top: 5px"placeholder="Title">
+          <span *ngIf= "!createPostForm.controls['postName'].valid && createPostForm.controls['postName'].touched" style="color: rgb(250, 53, 53);">
+            Please enter Post Name</span>
           <!-- url -->
           <input type="text" class="form-control" [formControlName]="'url'" style="margin-top: 5px" placeholder="URL">
           <!-- subredditName -->
@@ -25,6 +29,5 @@
         </div>
       </form>
     </div>
-  </Div>
   </div>
 </div>

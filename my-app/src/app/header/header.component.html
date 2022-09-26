@@ -1,14 +1,23 @@
 <header>
-  <div class = "container">
+  <div class = "container-fluid">
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-1">
         <a aria-label="Home" class="logo">
           <img src="https://i.pinimg.com/originals/c2/ef/93/c2ef93fc6f1a038d579a9362b50f076a.png">
         </a>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-7">
         <ul>
           <li><a [routerLink]="['/home']">Home page</a></li>
+          <li class="dropdown">
+            <!-- *ngIf="isLoggedIn" -->
+            <div>
+                <a (click)="goToUserProfile()">User Profile</a>
+                <div class="dropdown-content">
+                <a class="userdetails" id="dropdownBasic1">{{username}} </a>
+                <a (click)="logout()">Logout</a>
+                </div>
+              </div></li>
           <li><a [routerLink]="['/login']">Login</a></li>
           <li><a [routerLink]="['/signup']">Sign up</a></li>
         </ul>
@@ -16,7 +25,7 @@
       <div class="col-md-4">
         <nav class="nav nav-pills">
           <form class="form-inline" action="/action_page.php">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="searchValue" [(ngModel)] = "searchValue">
             <button class="btn btn-success" type="submit" (click)="searchPosts()">Search</button>
           </form>
         </nav>

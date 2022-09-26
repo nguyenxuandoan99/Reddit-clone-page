@@ -1,5 +1,6 @@
 .login-section{
   margin: 100px;
+  background-color: aquamarine;
 }
 
 .login-failed{
@@ -36,6 +37,4 @@
   padding: 3px 16px;
   opacity: 1;
 }
-body{
-  background-image: url(https://cdn5.f-cdn.com/contestentries/1578585/21468461/5d62b49ac544b_thumb900.jpg);
-}
+

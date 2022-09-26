@@ -8,3 +8,9 @@ body{
 .header{
   margin-top: 5px;
 }
+.foo{
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  background-image: linear-gradient(to right, #dae1e3, #ddeeee);
+}

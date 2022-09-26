@@ -21,6 +21,10 @@ export class TokenInterceptor implements HttpInterceptor{
       if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1) {
           return next.handle(req);
       }
+      // if (req.url.indexOf('refresh') >= 0 || req.url.indexOf('login') >= 0 ) {
+      //   console.log(req)
+      //   return next.handle(req);
+      // }
       const jwtToken = this.authService.getJwtToken();
 
       if (jwtToken) {
@@ -34,7 +38,6 @@ export class TokenInterceptor implements HttpInterceptor{
           }));
       }
       return next.handle(req);
-
   }
 
   private handleAuthErrors(req: HttpRequest<any>, next: HttpHandler)
@@ -68,6 +71,6 @@ export class TokenInterceptor implements HttpInterceptor{
       return req.clone({
           headers: req.headers.set('Authorization',
               'Bearer ' + jwtToken)
-      });
+    });
   }
 }

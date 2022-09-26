@@ -1,4 +1,5 @@
-<div class="container">
+<app-header></app-header>
+<div class="container-fluid">
   <div class="row">
     <hr />
     <div class="col-md-9">
@@ -6,12 +7,12 @@
         <div class="col-md-1">
           <app-vote-button [post]=" post "></app-vote-button>
         </div>
-        <div class="col-md-11">
+        <div class="col-md-8">
           <span>
-            <span class="subreddit-text"><a class="post-url" href="">{{post.subredditName}}</a></span>
-            <span> . Posted
-                <span> {{post.duration}} </span>
-                by
+            <span class="subreddit-text"><a class="post-url" href="">{{post.subredditName}}</a></span><br>
+            <span>
+              Posted: <span> {{post.duration}} </span><br>
+              by:
               <a *ngIf="post.userName === null" class="username" href="">Anonymous</a>
               <a *ngIf="post.userName != null" class="username" href="">{{post.userName}}</a>
             </span>
@@ -21,11 +22,35 @@
           <div>
             <p class="post-text">{{post.description}}</p>
           </div>
+          <!-- <app-view-comment></app-view-comment> -->
+          <div class="view-comment">
+          <div style="margin-top: 60px;" *ngFor="let comment of comments">
+            <div class="comment">
+              <div class="username">
+                <a routerLink="/user/comment.username">{{comment.userName}}</a>
+              </div>
+              <div>
+                <p>{{comment.duration}}</p>
+              </div>
+              <b>{{comment.text}}</b>
+            </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-3">
-      <app-side-bar></app-side-bar>
+      <hr/>
+          <div class="post-comment">
+            <form [formGroup]="commentForm" (ngSubmit)="postComment()">
+              <div class="form-group">
+                <textarea class="form-control" [formControlName]="'text'" placeholder="Write a comment on this post"></textarea>
+              </div>
+              <button type="submit" class="login float-right">Comment</button>
+            </form>
+          </div>
+      </div>
     </div>
   </div>
+  <div class="col-md-3">
+    <app-side-bar></app-side-bar>
+    <app-subreddit-side-bar></app-subreddit-side-bar>
+  </div>
+</div>
 </div>

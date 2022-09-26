@@ -5,22 +5,58 @@ img{
 }
 .row{
   height: 100px;
-  background-image: linear-gradient(to right, #e3f6f7, #71c2c2);
 }
-.col-md-6{
+.col-md-7{
   margin-top: 50px;
 }
-.col-md-6 ul{
+.col-md-7 ul{
   list-style-type: none;
 }
-.col-md-6 ul li{
+.col-md-7 ul li{
   float: left;
   width: 100px;
   text-align: center;
+  background-color: rgb(196, 234, 247);
+  margin-left: 5px;
+  height: 35px;
 }
-.col-md-6 ul li a{
+.col-md-7 ul :hover{
+  background-color: rgb(83, 225, 168);
+}
+.col-md-7 ul li a{
   text-decoration: none;
+  margin-top: 5px;
 }
 .col-md-4 {
   margin-top: 50px;
+}
+img{
+  border-radius: 60% ;
+}
+.logo{
+  text-align: center;
+}
+header{
+  background-color: azure;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  z-index: 1;
+  margin-top: 10px;
+}
+.dropdown-content a {
+  padding: 12px 15px;
+  text-decoration: none;
+  display: block;
+  background-image: linear-gradient(to left, rgb(240, 248, 231),rgb(74, 244, 108) );
+  color: blue;
+}
+
+.dropdown-content a:hover {
+  background-image: linear-gradient(to right, #e7f5f5, #96f1f3);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
 }

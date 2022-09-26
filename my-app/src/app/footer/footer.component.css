@@ -1,16 +1,4 @@
-.col-md-6 ul{
-  list-style-type: none;
-  text-align: center;
-}
-.col-md-6 ul li{
-  list-style-type: none;
-  background-color: aqua;
-  padding: 5px 10px 0 10px;
-  float: left;
-}
-.col-md-6 p {
-  text-align: center;
-}
-.col-md-6 h4{
-  text-align: center;
+.foo{
+  margin-left: 40%;
+  margin-top: 2%;
 }
