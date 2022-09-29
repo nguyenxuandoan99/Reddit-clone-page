@@ -16,12 +16,12 @@ img{
   float: left;
   width: 100px;
   text-align: center;
-  background-color: rgb(196, 234, 247);
+  background-color: rgb(130, 223, 167);
   margin-left: 5px;
   height: 35px;
 }
 .col-md-7 ul :hover{
-  background-color: rgb(83, 225, 168);
+  background-image: linear-gradient(to right, rgb(245, 248, 248), rgb(187, 237, 251));
 }
 .col-md-7 ul li a{
   text-decoration: none;
@@ -37,7 +37,8 @@ img{
   text-align: center;
 }
 header{
-  background-color: azure;
+  /* background-color: azure; */
+  margin-left: 2%;
 }
 .dropdown-content {
   display: none;
@@ -50,12 +51,12 @@ header{
   padding: 12px 15px;
   text-decoration: none;
   display: block;
-  background-image: linear-gradient(to left, rgb(240, 248, 231),rgb(74, 244, 108) );
-  color: blue;
+  background-color: #4bcc65;
+  color: rgb(225, 151, 14);
 }
 
 .dropdown-content a:hover {
-  background-image: linear-gradient(to right, #e7f5f5, #96f1f3);
+background-color: #8dfca4;
 }
 .dropdown:hover .dropdown-content {
   display: block;

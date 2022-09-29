@@ -1,27 +1,29 @@
 <!-- Display Posts -->
-<div class="row post" *ngFor="let post of posts">
-  <div class="col-md-11" *ngIf= "post.postName.includes(searchText)">
-    <span class="subreddit-info">
-      <div class="post-title">
-        <a class="postname" href="{{post.url}}">{{post.postName}}</a>
+<div class="post-title">
+  <div class="row-post" *ngFor="let post of posts">
+    <div class="col-md-11" *ngIf= "post.postName.includes(searchText)">
+      <span class="subreddit-info">
+        <div class="post-title">
+          <a class="postname" href="{{post.url}}">{{post.postName}}</a>
+        </div>
+        <span class="subreddit-text"><a class="posturl" routerLink="">{{post.subredditName}}</a></span><br>
+        <span>Post by : <a class="username">{{post.userName}}</a></span><br>
+        <span>{{post.duration}}</span>
+      </span>
+      <div>
+        <p class="post-text">{{post.description}}</p>
       </div>
-      <span class="subreddit-text"><a class="posturl" routerLink="">{{post.subredditName}}</a></span><br>
-      <span>Post by : <a class="username">{{post.userName}}</a></span><br>
-      <span>{{post.duration}}</span>
-    </span>
-    <div>
-      <p class="post-text">{{post.description}}</p>
+      <span>
+        <a class="btnCommments" role="button">
+          <fa-icon [icon]="faComments"></fa-icon>
+          Comments({{post.commentCount}})
+        </a>
+      <button class="btn btn-outline-success" (click)="readPost(post.id)">
+          Read Post
+        </button>
+        <button class="btn btn-outline-danger" (click)="remove(post.id)">Delete Post</button>
+      <hr />
+      </span>
     </div>
-    <span>
-      <a class="btnCommments" role="button">
-        <fa-icon [icon]="faComments"></fa-icon>
-        Comments({{post.commentCount}})
-      </a>
-     <button class="btn btn-outline-success" (click)="readPost(post.id)">
-        Read Post
-      </button>
-      <button class="btn btn-outline-danger" (click)="remove(post.id)">Delete Post</button>
-    <hr />
-    </span>
   </div>
 </div>

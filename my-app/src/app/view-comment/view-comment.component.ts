@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { throwError } from 'rxjs';
 import { CommentPayload } from '../comment/comment.payload';
 import { CommentService } from '../comment/comment.service';
@@ -10,7 +10,7 @@ import { CommentService } from '../comment/comment.service';
 })
 export class ViewCommentComponent implements OnInit {
   postId! : number;
-  comments !: CommentPayload[];
+  @Input() comments !: CommentPayload[];
   constructor(private commentService : CommentService) { }
 
   ngOnInit(): void {

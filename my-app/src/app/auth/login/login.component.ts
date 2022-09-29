@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   // })
 
   /**
-   * Create a login measure and read username and password values
+   * Create a login method and read username and password values
    */
 
   public login() : void {

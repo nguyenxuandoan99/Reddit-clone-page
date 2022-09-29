@@ -15,8 +15,7 @@ export class TokenInterceptor implements HttpInterceptor{
 
   constructor(public authService: AuthService) { }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler):
-      Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler) : Observable<HttpEvent<any>> {
 
       if (req.url.indexOf('refresh') !== -1 || req.url.indexOf('login') !== -1) {
           return next.handle(req);

@@ -12,9 +12,9 @@
           <li class="dropdown">
             <!-- *ngIf="isLoggedIn" -->
             <div>
-                <a (click)="goToUserProfile()">User Profile</a>
+                <a>User Profile</a>
                 <div class="dropdown-content">
-                <a class="userdetails" id="dropdownBasic1">{{username}} </a>
+                <a class="userdetails" id="dropdownBasic1" (click)="goToUserProfile()">{{username}} </a>
                 <a (click)="logout()">Logout</a>
                 </div>
               </div></li>

@@ -22,8 +22,8 @@
           <div>
             <p class="post-text">{{post.description}}</p>
           </div>
-          <!-- <app-view-comment></app-view-comment> -->
-          <div class="view-comment">
+          <app-view-comment [comments] = "comments"></app-view-comment>
+          <!-- <div class="view-comment">
           <div style="margin-top: 60px;" *ngFor="let comment of comments">
             <div class="comment">
               <div class="username">
@@ -35,7 +35,7 @@
               <b>{{comment.text}}</b>
             </div>
         </div>
-      </div>
+      </div> -->
       <hr/>
           <div class="post-comment">
             <form [formGroup]="commentForm" (ngSubmit)="postComment()">

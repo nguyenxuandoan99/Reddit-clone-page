@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/auth/shared/auth.service';
 import { PostModel } from '../post-model';
+import { PostService } from '../post.service';
+import { VoteService } from '../vote.service';
+import { VotePayload } from './vote-payload';
 
 @Component({
   selector: 'app-vote-button',
@@ -10,13 +14,24 @@ import { PostModel } from '../post-model';
 export class VoteButtonComponent implements OnInit {
 
   @Input() post!: PostModel;
+  votePayload !: VotePayload;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
-  constructor() { }
+  upvoteColor !: string;
+  downvoteColor !: string;
+  constructor(private voteService : VoteService, private authService : AuthService, private postService : PostService,) {
+    // this.votePayload = {
+    //   voteType : undefined,
+    //   postId : undefined,
+    // }
+   }
 
   ngOnInit(): void {
+    // this.updateVoteDetails();
   }
 
-  upvotePost():void{}
+  upvotePost():void{
+
+  }
   downvotePost():void{}
 }
