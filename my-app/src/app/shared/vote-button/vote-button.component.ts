@@ -19,11 +19,13 @@ export class VoteButtonComponent implements OnInit {
   faArrowDown = faArrowDown;
   upvoteColor !: string;
   downvoteColor !: string;
-  constructor(private voteService : VoteService, private authService : AuthService, private postService : PostService,) {
+  isLoggedIn !: boolean;
+  constructor(private voteService : VoteService, private authService : AuthService, private postService : PostService) {
     // this.votePayload = {
-    //   voteType : undefined,
-    //   postId : undefined,
+    //   voteType: undefined,
+    //   postId: undefined
     // }
+    // this.authService.loggedIn.subscribe((data : boolean) => this.isLoggedIn = data);
    }
 
   ngOnInit(): void {

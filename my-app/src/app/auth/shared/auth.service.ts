@@ -58,6 +58,7 @@ export class AuthService {
       this.localStogare.store('expiresAt', response.expiresAt);
     }));
   }
+
   logout() {
     this.httpClient.post('http://localhost:8080/api/auth/logout', this.refreshTokenPayload,
     { responseType: 'text' })

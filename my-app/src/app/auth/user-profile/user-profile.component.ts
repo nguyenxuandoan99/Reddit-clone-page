@@ -17,6 +17,8 @@ export class UserProfileComponent implements OnInit {
   comments! : CommentPayload[];
   postLength! : number;
   commentLength! : number;
+
+
   constructor(private activatedRoute : ActivatedRoute, private postService : PostService,private commentService : CommentService) {
     this.name = this.activatedRoute.snapshot.params['name'];
     this.postService.getAllPostsByUser(this.name).subscribe((data : any ) => {
@@ -24,6 +26,7 @@ export class UserProfileComponent implements OnInit {
       this.posts = data;
       this.postLength = data.length;
     });
+
     this.commentService.getAllCommentsByUser(this.name).subscribe((data : any) => {
       console.log(data);
       this.comments = data;
