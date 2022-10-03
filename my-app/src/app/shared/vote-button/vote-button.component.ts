@@ -31,21 +31,29 @@ export class VoteButtonComponent implements OnInit {
     // this.authService.loggedIn.subscribe((data : boolean) => this.isLoggedIn = data);
    }
 
+  /**
+   * declare and initialize the VotePayload  object
+   */
   ngOnInit(): void {
-    this.updateVoteDetails();
     this.votePayload = {
       voteType : null,
       postId : null
     }
     this.authService.loggedIn.subscribe((data : boolean) => this.isLoggedIn = data);
+    this.updateVoteDetails();
   }
 
+  /**
+   * The upvotePost() method sets the VoteType for the VotePayload object
+   * and calls the vote() method inside the component.
+   */
   upvotePost():void{
     console.log("up");
     this.votePayload.voteType = VoteType.UPVOTE;
     this.vote();
     this.downvoteColor = '';
   }
+
   downvotePost():void{
     console.log("kkk");
     this.votePayload.voteType = VoteType.DOWNVOTE;
@@ -53,6 +61,10 @@ export class VoteButtonComponent implements OnInit {
     this.upvoteColor = '';
   }
 
+  /**
+   * This vote() method, which is setting the value to the postId field as input
+   * call the vote() method of the VoteService class, which returns an Observable.
+   */
   private vote() {
     this.votePayload.postId = this.post.id;
     this.voteService.vote(this.votePayload).subscribe(() => {
