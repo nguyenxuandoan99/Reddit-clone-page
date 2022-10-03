@@ -14,7 +14,8 @@ export class ListSubredditComponent implements OnInit {
   constructor(private subredditService: SubredditService) { }
 
   /**
-   * Gọi getAllSubreddit method phản hồi cho đối tượng subreddit thuộc loại mảng mô hình subreddit
+   * Gọi getAllSubreddit method phản hồi cho đối tượng subreddit thuộc loại mảng Subredditmodel
+   *
    */
 
   ngOnInit(): void {

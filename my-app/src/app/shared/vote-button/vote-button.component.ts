@@ -46,19 +46,23 @@ export class VoteButtonComponent implements OnInit {
   /**
    * The upvotePost() method sets the VoteType for the VotePayload object
    * and calls the vote() method inside the component.
+   * Mỗi 1 id account login chỉ upvote được 1 lần
    */
   upvotePost():void{
     console.log("up");
     this.votePayload.voteType = VoteType.UPVOTE;
     this.vote();
-    this.downvoteColor = '';
+    // this.downvoteColor = '';
   }
 
+  /**
+   * Mỗi 1 id account login chỉ downvote được 1 lần
+   */
   downvotePost():void{
-    console.log("kkk");
+    console.log("down");
     this.votePayload.voteType = VoteType.DOWNVOTE;
     this.vote();
-    this.upvoteColor = '';
+    // this.upvoteColor = '';
   }
 
   /**
