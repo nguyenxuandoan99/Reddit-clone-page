@@ -26,6 +26,7 @@ export class TokenInterceptor implements HttpInterceptor{
       // }
       const jwtToken = this.authService.getJwtToken();
 
+      //Nếu có token thực hiện add token, nếu có lỗi xử lý
       if (jwtToken) {
           return next.handle(this.addToken(req, jwtToken)).pipe(catchError(error => {
               if (error instanceof HttpErrorResponse
@@ -39,6 +40,7 @@ export class TokenInterceptor implements HttpInterceptor{
       return next.handle(req);
   }
 
+  //xử lý lỗi khi gán token
   private handleAuthErrors(req: HttpRequest<any>, next: HttpHandler)
       : Observable<HttpEvent<any>> {
       if (!this.isTokenRefreshing) {
@@ -66,6 +68,7 @@ export class TokenInterceptor implements HttpInterceptor{
       }
   }
 
+  //save token for header
   addToken(req: HttpRequest<any>, jwtToken: any) {
       return req.clone({
           headers: req.headers.set('Authorization',

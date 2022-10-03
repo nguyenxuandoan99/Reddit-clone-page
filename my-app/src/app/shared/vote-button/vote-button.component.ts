@@ -5,6 +5,7 @@ import { PostModel } from '../post-model';
 import { PostService } from '../post.service';
 import { VoteService } from '../vote.service';
 import { VotePayload } from './vote-payload';
+import { VoteType } from './vote-type';
 
 @Component({
   selector: 'app-vote-button',
@@ -14,16 +15,17 @@ import { VotePayload } from './vote-payload';
 export class VoteButtonComponent implements OnInit {
 
   @Input() post!: PostModel;
-  votePayload !: VotePayload;
+  public votePayload : any;
   faArrowUp = faArrowUp;
   faArrowDown = faArrowDown;
   upvoteColor !: string;
   downvoteColor !: string;
   isLoggedIn !: boolean;
+
   constructor(private voteService : VoteService, private authService : AuthService, private postService : PostService) {
     // this.votePayload = {
-    //   voteType: undefined,
-    //   postId: undefined
+    //   voteType: null,
+    //   postId : null
     // }
     // this.authService.loggedIn.subscribe((data : boolean) => this.isLoggedIn = data);
    }

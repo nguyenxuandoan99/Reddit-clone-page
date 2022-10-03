@@ -43,6 +43,7 @@ export class ViewPostComponent implements OnInit {
       console.log(data)
       this.post = data;
     });
+    this.getCommentsForPost();
   }
 
   /**
