@@ -33,12 +33,21 @@ export class VoteButtonComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateVoteDetails();
+    this.votePayload = {
+      voteType : null,
+      postId : null
+    }
+    this.authService.loggedIn.subscribe((data : boolean) => this.isLoggedIn = data);
   }
 
   upvotePost():void{
-
+    console.log("up");
+    this.votePayload.voteType = VoteType.UPVOTE;
+    this.vote();
+    this.downvoteColor = '';
   }
   downvotePost():void{
+    console.log("kkk");
     this.votePayload.voteType = VoteType.DOWNVOTE;
     this.vote();
     this.upvoteColor = '';
